@@ -65,14 +65,26 @@ a {
 input {
   width: 360px;
   height: 40px;
-}
-input:hover {
-  border: 1px solid #2e2f42;
+  border: 1px solid #808080;
   border-radius: 4px;
 }
 textarea {
   width: 360px;
   margin-bottom: 8px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+}
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+input:active,
+textarea:active {
+  border: 1px solid #808080;
 }
 label {
   font-weight: 400;
@@ -101,4 +113,7 @@ button {
   letter-spacing: 0.04em;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
+}
+button:hover {
+  background-color: #6c8cff;
 }
