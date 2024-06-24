@@ -11,15 +11,15 @@ function saveToLS() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
-function loadFromLS(key) { 
-    const json = localStorage.getItem(key);
-    try {
-        const data = JSON.parse(json);
-        return data;
-    } catch {
-        return json;
-    }
-}
+// function loadFromLS(key) { 
+//     const json = localStorage.getItem(key);
+//     try {
+//         const data = JSON.parse(json);
+//         return data;
+//     } catch {
+//         return json;
+//     }
+// }
 
 form.addEventListener('input', (e) => {
     formData[e.target.name] = e.target.value;
@@ -35,10 +35,11 @@ form.addEventListener('input', (e) => {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    const savedData = loadFromLS(STORAGE_KEY);
+    const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
-        form.elements.email.value = formData.email;
-        form.elements.message.value = formData.message;
+        formData = JSON.parse(savedData);
+        emailInput.value = formData.email;
+        messageTextarea.value = formData.message
 }
 })
  
